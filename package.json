@@ -1,0 +1,49 @@
+{
+  "name": "jsnd3_mars_dashboard",
+  "version": "1.0.0",
+  "description": "course project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-backend-server": "node src/server/index.js",
+    "start-frontend-server": "npx http-server -a localhost src/public/",
+    "build": "webpack --config webpack.js --mode production",
+    "build-dev": "webpack --config webpack.js --mode development",
+    "livereload": "livereload src/public/",
+    "dev-stack": "npm run start-backend-server & npm run start-frontend-server & npm run build-dev & npm run livereload"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-arrow-functions": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "autoprefixer": "^10.2.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.6.0",
+    "css-loader": "^5.1.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-server": "^0.12.3",
+    "immutable": "^4.0.0-rc.12",
+    "jquery": "^3.6.0",
+    "js-loading-overlay": "^1.2.0",
+    "livereload": "^0.9.2",
+    "node-fetch": "^2.6.0",
+    "popper.js": "^1.16.1",
+    "postcss-loader": "^5.1.0",
+    "precss": "^4.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "underscore": "^1.12.1",
+    "webpack": "^5.24.4"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.5.0"
+  }
+}

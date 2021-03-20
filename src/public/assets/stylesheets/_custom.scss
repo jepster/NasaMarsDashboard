@@ -1,0 +1,38 @@
+.card {
+  @media only screen and (min-width: 600px) {
+    margin-bottom: 25px;
+    height: 560px;
+  }
+  @media only screen and (max-width: 599px) {
+    margin-bottom: 25px;
+    height: 750px;
+  }
+}
+
+.card {
+  .img-wrapper {
+    height: 290px;
+    background-color: #f6f6f6;
+  }
+  img {
+    max-height: 286px;
+  }
+}
+
+.selection-form {
+  margin-top: 25px;
+  padding: 25px;
+  @media only screen and (min-width: 600px) {
+    height: 90px;
+  }
+  @media only screen and (max-width: 599px) {
+    height: 140px;
+  }
+  .landing-date-col {
+    padding-left: 35px;
+    padding-top: 10px;
+  }
+  .form-check {
+    display: inline-block;
+  }
+}
