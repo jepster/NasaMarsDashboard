@@ -39,7 +39,7 @@ const updateApplicationStore = (roverDataRaw) => {
 
     const roverPhotoCollectionRaw = window.roverDataRaw.sort((itemA, itemB) => itemA.earth_date - itemB.earth_date);
 
-    const roverPhotoCollection = roverPhotoCollectionRaw.map(item => {
+    const createRoverInfoForRender = (item) => {
         return {
             name: window.options.get('name') ? item.rover.name : null,
             imgSrc: window.options.get('imgSrc') ? item.img_src : null,
@@ -54,7 +54,9 @@ const updateApplicationStore = (roverDataRaw) => {
                 } else return item.rover.name === window.selectedRover;
             })(item)
         };
-    });
+    }
+
+    const roverPhotoCollection = roverPhotoCollectionRaw.map(item => createRoverInfoForRender(item));
 
     return fromJS(roverPhotoCollection);
 }
@@ -216,11 +218,23 @@ const RenderedList = (immutableRoverPhotoCollection) => {
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6">
-                                <select name="rovers" class="form-control">
-                                    <option value="all">All</option>
-                                    <option value="Spirit">Spirit</option>
-                                    <option value="Opportunity">Opportunity</option>
-                                    <option value="Curiosity">Curiosity</option>
+                                <select name="rovers" class="form-control">` +
+                                    (() => {
+                                        const createOption = (option) => {
+                                            if (typeof window.selectedRover === 'undefined' || window.selectedRover === 'All') {
+                                                return `<option value="` + option + `">` + option + `</option>`;
+                                            }
+
+                                            if (window.selectedRover === option) {
+                                                return `<option value="` + option + `" selected="selected">` + option + `</option>`;
+                                            }
+
+                                            return `<option value="` + option + `" selected="selected">` + option + `</option>`;
+                                        };
+                                        const possibleValues = ['All', 'Spirit', 'Opportunity', 'Curiosity'];
+                                        return possibleValues.map(item => createOption(item));
+                                    })()
+                                    + `
                                 </select>
                             </div>
                         </div>
